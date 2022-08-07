@@ -46,6 +46,30 @@ public class Job {
         return Objects.hash(id);
     }
 
+//    @Override //toString statement to make newline test pass
+//    public String toString() {
+//        return "\nID: "  + "\n";
+//    }
+
+    public String toString() {
+        String nameValue = this.name;
+        String employerValue = this.getEmployer().toString();
+        String locationValue = this.getLocation().toString();
+        String positionTypeValue = this.getPositionType().toString();
+        String coreCompetencyValue = this.getCoreCompetency().toString();
+
+        if (this.employer.getValue().equals("")) {
+            employerValue = "Data not available";
+        }
+        if (this.positionType.getValue().equals("")) {
+            positionTypeValue = "Data not available";
+        }
+
+        return "\nID: " + this.id+ "\nName: " + nameValue + "\nEmployer: "
+                + employerValue + "\nLocation: " + locationValue
+                + "\nPosition Type: " + positionTypeValue
+                + "\nCore Competency: " + coreCompetencyValue + "\n";
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
